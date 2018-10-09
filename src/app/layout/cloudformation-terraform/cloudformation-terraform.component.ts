@@ -24,7 +24,7 @@ export class CloudFormationTerraform implements OnInit {
         var reader = new FileReader();
         reader.readAsText(file, "UTF-8");
         reader.onload = (evt: any) => {
-          this.cloudFormationJson =  JSON.parse(evt.target.result)
+          this.form.controls['file'].setValue(JSON.parse(evt.target.result));
         }
         reader.onerror = function (evt) {
             console.log('error reading file');
