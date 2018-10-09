@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-6">
+                <h2>Cloudformation to Terraform File</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-default">
+                    <div class="card-header">
+                        Cloudformation to JSON
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="form">
+                            <div class="form-group col-6">
+                                <label for="exampleInputEmail1">Upload Cloudformatino File</label>
+                                <input (change)="onImport($event)" type="file" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Cloudformation File" accept=".json">
+                            </div>
+                            <button type="submit" (click)="showTransformation = true" class="btn btn-success">Submit</button>
+                        </form>
+                        <hr>
+                        <div class="row" [hidden]="!showTransformation">
+                            <div class="col-6">
+                                <h4>INPUT: Cloudformation File</h4>
+                                <div style="height:500px; width:550px; overflow-y: scroll; padding-bottom:10px; border:3px solid black; ">
+                                    <pre>
+                                        {{cloudFormationJson | json}}
+                                    </pre>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <h4>OUTPUT: Terraform File</h4>
+                                <div style="height:500px; width:550px; overflow-y: scroll; padding-bottom:10px; border:3px solid black; ">
+                                    <pre>
+                                        {{cloudFormationJson | json}}
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
