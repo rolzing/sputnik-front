@@ -28,5 +28,9 @@
     "Pending Task" : "Pending Task",
     "In queue" : "In queue",
     "Mail" : "Mail",
-    "View All" : "View All"
+    "View All" : "View All",
+    "Converter Tool": "Converter Tool",
+    "Submit": "Subtmit",
+    "Cloudformation File to Terraform File": "Cloudformation File to Terraform File",
+    "Upload Cloudformation File": "Upload Cloudformation File"
 }

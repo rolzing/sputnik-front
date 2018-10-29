@@ -28,5 +28,9 @@
     "Pending Task" : "Tarea pendiente",
     "In queue" : "En cola",
     "Mail" : "Correo",
-    "View All" : "Ver todo"
+    "View All" : "Ver todo",
+    "Converter Tool": "Herramienta de Conversión ",
+    "Submit": "Enviar",
+    "Cloudformation File to Terraform File": "Archivo Cloudformation a Archivo Terraform",
+    "Upload Cloudformation File": "Subir archivo Cloudformation"
 }
