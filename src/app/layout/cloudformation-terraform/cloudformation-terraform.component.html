@@ -18,7 +18,7 @@
                                 <input (change)="onImport($event)" type="file" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" placeholder="Cloudformation File" accept=".json">
                             </div>
-                            <button type="submit" [disabled]="this.form.invalid" (click)="showTransformation = true" class="btn btn-success offset-5">Submit</button>
+                            <button type="submit" [disabled]="this.form.invalid" (click)="showTransformation = true; sendToBackend()" class="btn btn-success offset-5">Submit</button>
                         </form>
                         <hr>
                         <div class="row" [hidden]="!showTransformation">

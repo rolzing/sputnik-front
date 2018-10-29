@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import {CloudFormationTerraform} from './cloudformation-terraform.component';
 import { CloudFormationTerraformRoutingModule } from './cloudformation-terraform-routing.module'
+import { BackendClass } from '../../services/backend.service';
 
 @NgModule({
     imports: [
@@ -15,6 +16,7 @@ import { CloudFormationTerraformRoutingModule } from './cloudformation-terraform
         NgbDropdownModule.forRoot(),
         ReactiveFormsModule
     ],
-    declarations: [CloudFormationTerraform]
+    declarations: [CloudFormationTerraform],
+    providers: [BackendClass]
 })
 export class LayoutModule {}

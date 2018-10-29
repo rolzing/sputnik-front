@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {  BackendClass } from '../../services/backend.service';
+
+
 
 @Component({
 	selector: 'app-cloudformation-terraform',
@@ -10,26 +13,32 @@ export class CloudFormationTerraform implements OnInit {
   showTransformation: false;
   cloudFormationJson: any;
 
-	constructor( fb: FormBuilder) {
-		this.form = fb.group({
-			file: ['', Validators.required]
-		});
-	}
+  constructor( fb: FormBuilder,
+              private BackendClass: BackendClass) {
+    this.form = fb.group({
+      file: ['', Validators.required]
+    });
+  }
 
-	ngOnInit() {}
+  ngOnInit() {}
 
-	 onImport(event) {
+  onImport(event) {
     var file = event.srcElement.files[0];
     if (file) {
-        var reader = new FileReader();
-        reader.readAsText(file, "UTF-8");
-        reader.onload = (evt: any) => {
-          this.form.controls['file'].setValue(JSON.parse(evt.target.result));
-        }
-        reader.onerror = function (evt) {
-            console.log('error reading file');
-        }
+      var reader = new FileReader();
+      reader.readAsText(file, "UTF-8");
+      reader.onload = (evt: any) => {
+        this.form.controls['file'].setValue(JSON.parse(evt.target.result));
+      }
+      reader.onerror = function (evt) {
+        console.log('error reading file');
+      }
     }
   }
+
+  sendToBackend(){
+    this.BackendClass.CloudFormationPost(this.form.value)
+  }
+  //TODO: Add services and change boolean to show result in page
 
 }
