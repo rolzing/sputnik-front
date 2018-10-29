@@ -13,6 +13,7 @@ export class CloudFormationTerraform implements OnInit {
   form: FormGroup;
   showTransformation: false;
   cloudFormationJson: any;
+  terraformResult: any;
 
   constructor(fb: FormBuilder,
     private BackendClass: BackendClass,
@@ -30,7 +31,9 @@ export class CloudFormationTerraform implements OnInit {
       var reader = new FileReader();
       reader.readAsText(file, "UTF-8");
       reader.onload = (evt: any) => {
-        this.form.controls['file'].setValue(JSON.parse(evt.target.result));
+        let cfJson = JSON.parse(evt.target.result)
+        this.cloudFormationJson = cfJson
+          this.form.controls['file'].setValue(cfJson);
       }
       reader.onerror = function (evt) {
         console.log('error reading file');
@@ -40,8 +43,9 @@ export class CloudFormationTerraform implements OnInit {
 
   sendToBackend() {
     //this.BackendClass.CloudFormationPost(this.form.value)
-    this.http.post('192.168.1.0/cf', this.form.value).subscribe((response: any) => {
-      console.log(response.status)
+    this.http.post('http://localhost:8080/cf', this.form.controls["file"].value).subscribe((response: any) => {
+    this.terraformResult = response.result
+    console.log(response.status)
     })
   }
   //TODO: Add services and change boolean to show result in page
