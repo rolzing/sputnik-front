@@ -30,7 +30,7 @@
     "Mail" : "Mail",
     "View All" : "View All",
     "Converter Tool": "Converter Tool",
-    "Submit": "Subtmit",
+    "Submit": "Submit",
     "Cloudformation File to Terraform File": "Cloudformation File to Terraform File",
     "Upload Cloudformation File": "Upload Cloudformation File"
 }
